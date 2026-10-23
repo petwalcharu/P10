@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SocialPulse AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <div class="brand-mark">S</div>
+          <div>
+            <p class="eyebrow">GitHub Copilot demo</p>
+            <h1>SocialPulse AI</h1>
+          </div>
+        </div>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="#overview">Overview</a>
+          <a href="#composer">Composer</a>
+          <a href="#insights">Insights</a>
+          <a href="#workflow">Workflow</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero" id="overview">
+          <div class="hero-copy">
+            <span class="pill">AI-powered social strategy</span>
+            <h2>Build content, track momentum, and ship faster with GitHub Copilot.</h2>
+            <p>
+              SocialPulse AI is a lightweight social media dashboard that demonstrates
+              how Copilot helps developers generate code, complete repetitive work,
+              debug issues, and document solutions while shipping a polished product.
+            </p>
+            <div class="hero-actions">
+              <button class="primary-btn" id="generateIdeaBtn">Generate campaign idea</button>
+              <button class="secondary-btn" id="showDebugBtn">View debugging flow</button>
+            </div>
+            <div class="hero-metrics">
+              <div>
+                <strong>24.8K</strong>
+                <span>weekly reach</span>
+              </div>
+              <div>
+                <strong>6.2%</strong>
+                <span>engagement</span>
+              </div>
+              <div>
+                <strong>3.1h</strong>
+                <span>avg. response</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-panel">
+            <div class="panel-header">
+              <span class="dot green"></span>
+              <span class="dot orange"></span>
+              <span class="dot red"></span>
+            </div>
+            <div class="panel-content">
+              <div class="mini-metric">
+                <span>Campaign health</span>
+                <strong>Excellent</strong>
+              </div>
+              <div class="sparkline" aria-label="Engagement trend chart">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <ul class="panel-list">
+                <li>Trending hashtags: #LaunchDay #CreatorEconomy</li>
+                <li>Top content: product teaser reel</li>
+                <li>Next action: A/B testing CTA copy</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="stats-grid" id="insights">
+          <article class="stat-card accent-purple">
+            <span class="label">Posts created</span>
+            <strong id="postsCount">128</strong>
+            <small>+18% this week</small>
+          </article>
+          <article class="stat-card accent-cyan">
+            <span class="label">Average engagement</span>
+            <strong>7.4%</strong>
+            <small>+1.6% improvement</small>
+          </article>
+          <article class="stat-card accent-orange">
+            <span class="label">Saved dev time</span>
+            <strong>12h</strong>
+            <small>through Copilot automation</small>
+          </article>
+          <article class="stat-card accent-green">
+            <span class="label">Issue resolution</span>
+            <strong>94%</strong>
+            <small>1st-pass bug fixes</small>
+          </article>
+        </section>
+
+        <section class="main-layout">
+          <div class="content-column">
+            <section class="composer" id="composer">
+              <div class="section-heading">
+                <h3>Create a post</h3>
+                <span class="status-badge">Draft ready</span>
+              </div>
+
+              <form id="composerForm">
+                <label for="postInput">Post idea</label>
+                <textarea
+                  id="postInput"
+                  rows="4"
+                  placeholder="Write a short idea for a social post, launch announcement, or creator collaboration..."
+                >Launching a new creator toolkit for teams that want to move faster, ship smarter, and keep brand voice consistent.</textarea>
+
+                <div class="composer-tools">
+                  <div class="field-group">
+                    <label for="toneSelect">Tone</label>
+                    <select id="toneSelect">
+                      <option value="confident">Confident</option>
+                      <option value="playful">Playful</option>
+                      <option value="insightful">Insightful</option>
+                      <option value="urgent">Urgent</option>
+                    </select>
+                  </div>
+                  <div class="field-group">
+                    <label for="tagInput">Hashtags</label>
+                    <input id="tagInput" type="text" value="#LaunchDay #Productivity #AI" />
+                  </div>
+                </div>
+
+                <div class="action-row">
+                  <button type="button" class="secondary-btn" id="captionBtn">Generate caption</button>
+                  <button type="submit" class="primary-btn">Publish post</button>
+                </div>
+              </form>
+            </section>
+
+            <section class="feed">
+              <div class="section-heading">
+                <h3>Latest posts</h3>
+                <button class="link-btn" id="refreshFeedBtn">Refresh</button>
+              </div>
+              <div id="feedList" class="feed-list" aria-live="polite"></div>
+            </section>
+          </div>
+
+          <aside class="sidebar" id="workflow">
+            <section class="feature-panel">
+              <div class="section-heading">
+                <h3>Copilot workflow</h3>
+              </div>
+              <ul class="workflow-list">
+                <li>
+                  <span class="step-number">01</span>
+                  <div>
+                    <h4>Code generation</h4>
+                    <p>Generate UI patterns, data models, and test fixtures in seconds.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="step-number">02</span>
+                  <div>
+                    <h4>Completion</h4>
+                    <p>Finish boilerplate, API handlers, and repeated logic with smart suggestions.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="step-number">03</span>
+                  <div>
+                    <h4>Debugging</h4>
+                    <p>Review console errors, find root causes, and propose fixes faster.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="step-number">04</span>
+                  <div>
+                    <h4>Documentation</h4>
+                    <p>Create clear README guidance, inline comments, and onboarding notes.</p>
+                  </div>
+                </li>
+              </ul>
+            </section>
+
+            <section class="debug-panel">
+              <div class="section-heading small-gap">
+                <h3>Debug log</h3>
+                <span class="status-badge warning">Live trace</span>
+              </div>
+              <div id="debugLog" class="debug-log">
+                <p>[INFO] Social post metric cache initialized.</p>
+                <p>[FIX] Duplicate engagement counter corrected.</p>
+                <p>[DOCS] README updated with launch checklist.</p>
+              </div>
+            </section>
+          </aside>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
